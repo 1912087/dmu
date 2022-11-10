@@ -14,17 +14,15 @@ public interface TagPageMapper {
 	int getLearnCount(@Param("dtarget") String dtarget);
 
 	//ArrayList<TicketDto> learndayAll(String dcode, String dtarget);
-	
 //	ArrayList<TicketDto> getLists( String dcode, String dtarget);
-//	
 //	ArrayList<TicketDto> getDayList1(String dcode, String day);
 //	ArrayList<TicketDto> getDayList2(String dcode, String day);
-//	
 //	ArrayList<TicketDto> getExhibitionList(String dcode);
 //	ArrayList<TicketDto> getExhibitionList1(String dcode);
-//	
-//	TicketDto getExhibition();
-//	ArrayList<TicketDto> getEventContent(String dcode);
-//	ArrayList<TicketDto> eventlist(String dplace,String dcode);
+	TicketDto getExhibition();
+	
+	//learn
+	ArrayList<TicketDto> getEventContent(@Param("dcode") String dcode);
+	ArrayList<TicketDto> getEventList(@Param("dplace") String dplace, @Param("dcode") String dcode);
 //	ArrayList<TicketDto> getDayList(String dcode, String day);
 }

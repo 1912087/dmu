@@ -35,7 +35,6 @@
 		let target = "${dtarget}";
 		$("#"+target).addClass("on");
 		
-		//최신순&오래된순
 		$(".daydesc").click(function(){
 			var day = $(this).attr("id");
 			$(".daydesc a").css("color","#999").css("font-weight","400");
@@ -50,8 +49,8 @@
 		last_program("all", target);
 		function day_sort(day, dtarget) {
 			$.ajax({
-				url : '/learn_page_ajaxlist/'+day+'/'+dtarget, // 이주소로 보낼건데 
-				type : "get" , //어떤 방식으로 보낼거야?
+				url : '/learn_page_ajaxlist/'+day+'/'+dtarget, 
+				type : "get", 
 				cache : false,
 				headers : {"cache-control" : "no-cache" , "pragma" : "no-cache"},
 				success : function(data){
@@ -118,11 +117,12 @@
 		}
 		
 
-		//지난 프로그램 연도
 		$(".laern_target1").click(function(){
 			var test = $(this).attr("id"); 
-			$(".laern_target1 a").css("color","#767676").css({"font-weight":"400", "cursor" : "pointer"});
-			$("#"+test + " a").css("font-weight","400").css("color","black");
+			$(".laern_target1").removeClass("on");
+			$(this).addClass("on");
+		/* 	$(".laern_target1 a").css("color","rgb(118, 118, 118)").css({"font-weight":"300", "cursor" : "pointer"});
+			$("#"+test + " a").css("font-weight","300").css("color","black"); */
 			
 			var day = $(this).attr("id");
 			var dtarget ="${dtarget}";
@@ -246,7 +246,7 @@
 												<div data-v-47432960="" data-v-e20ce500=""
 													class="sorting-area" data-v-080a389a="">
 													<ul data-v-47432960="">
-														<li data-v-47432960="" class="daydesc" id="1"><a
+														<li data-v-47432960="" class="daydesc on" id="1"><a
 															data-v-47432960="" style="cursor: pointer;">최신순</a></li>
 														<li data-v-47432960="" class="daydesc" id="0"><a
 															data-v-47432960="" style="cursor: pointer;">오래된순</a></li>
@@ -334,9 +334,8 @@
 												<div data-v-bc272086="" class="year-list-box">
 													<ul data-v-bc272086="" class="year-list"
 														style="width: 704px; margin-left: 0px;">
-														<li data-v-bc272086="" class=""><a
-															data-v-bc272086="" id="all" class="laern_target1"
-															role="button" style = "cursor:pointer;">전체</a></li>
+														<li data-v-bc272086="" id="all" class="laern_target1 on"><a
+															data-v-bc272086="" role="button">전체</a></li>
 														<li data-v-bc272086="" class="laern_target1" id="2022"><a
 															data-v-bc272086=""  role="button">2022</a></li>
 														<li data-v-bc272086="" class="laern_target1" id="2021"><a

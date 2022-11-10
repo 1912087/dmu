@@ -62,25 +62,25 @@ public class TagPageService {
 //			return list;
 //	}
 //	
-//	public TicketDto getExhibition() {
-//		return tagpageDao.getExhibition();
-//	}
-//	
-//	/*
-//	 * tag_page
-//	 */
-//	
-//	public ArrayList<TicketDto> getEventContent(String dcode ) {
-//		ArrayList<TicketDto> list = tagpageDao.getEventContent(dcode);
-//		return list;
-//	}
-//	
-//	public ArrayList<TicketDto> eventlist(String dplace,String dcode ) {
-//		ArrayList<TicketDto> list = tagpageDao.eventlist(dplace, dcode);
-//		return list;
-//	}
-//	
-//	
+	public TicketDto getExhibition() {
+		return tagpageDao.getExhibition();
+	}
+	
+	/*
+	 * tag_page
+	 */
+	
+	public ArrayList<TicketDto> getEventContent(String dcode) {
+		ArrayList<TicketDto> list = tagpageDao.getEventContent(dcode);
+		return list;
+	}
+	
+	public ArrayList<TicketDto> getEventList(String dplace, String dcode) {
+		ArrayList<TicketDto> list = tagpageDao.getEventList(dplace, dcode);
+		return list;
+	}
+	
+	
 //	public ArrayList<TicketDto> getDayList(String dcode, String day) {
 //		ArrayList<TicketDto> list = tagpageDao.getDayList(dcode, day);
 //		return list;

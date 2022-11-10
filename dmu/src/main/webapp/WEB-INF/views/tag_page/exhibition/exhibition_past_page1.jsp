@@ -17,15 +17,15 @@
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
-	href="http://localhost:9000/dmu/resources/css/exhibition_past_page.css">
+	href="http://localhost:9000/css/exhibition_past_page.css">
 <link rel="stylesheet" as="style" crossorigin
 	href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
 <link rel="stylesheet"
-	href="http://localhost:9000/dmu/resources/css/font.css">
+	href="http://localhost:9000/css/font.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/tag_page2.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/main_header.js"></script>
+<script src="http://localhost:9000/js/tag_page2.js"></script>
+<script src="http://localhost:9000/js/main_header.js"></script>
 <script> 
 	$(document).ready(function(){
 	     
@@ -38,7 +38,7 @@
 			var day = $(this).attr("id");
 			
 			$.ajax({
-				url : 'exhibition_past_ajaxlist1.do?day='+day, // 이주소로 보낼건데 
+				url : '/exhibition_past_ajaxlist1/'+day, // 이주소로 보낼건데 
 				type : "get" , //어떤 방식으로 보낼거야?
 				cache : false,
 				headers : {"cache-control" : "no-cache" , "pragma" : "no-cache"},
@@ -52,7 +52,7 @@
 							for(aj of dataset.list){
 							output +="<div data-v-0157d8cb='' class='item-previous' id='itemprevious' >"
 							output +="<a data-v-0157d8cb='' class='thumb'style='cursor: pointer;''>"
-							output +="<img data-v-2fed1a9a='' data-v-0157d8cb=''src='http://localhost:9000/dmu/resources/upload/"+aj.dsfile+"' alt='TONG’s VINTAGE : 기묘한 통의 만물상'class='pc' style='width:100%;'></a>"
+							output +="<img data-v-2fed1a9a='' data-v-0157d8cb=''src='http://localhost:9000/upload/"+aj.dsfile+"' alt='TONG’s VINTAGE : 기묘한 통의 만물상'class='pc' style='width:100%;'></a>"
 							output +="<div data-v-0157d8cb='' class='info'>"
 							output += "<span data-v-0157d8cb='' class='place'>"+aj.dplace+"</span>"
 							output += "<div data-v-0157d8cb='' style='cursor: pointer;'>"
@@ -84,7 +84,7 @@
 			
 	$('#more_button').click(function(){
 								
-	//$(location).attr('href', "http://localhost:9000/dmu/adminlearn_list.do?rpage="+${rpage+1});         
+	//$(location).attr('href', "http://localhost:9000/dmu/adminlearn_list?rpage="+${rpage+1});         
 							    
 			});  
 });  
@@ -94,7 +94,7 @@
 </head>
 <body class="">
 	<!-- header  -->
-	<iframe src="header.do" width="100%" height="200px" scrolling="no"
+	<iframe src="/header" width="100%" height="200px" scrolling="no"
 		frameborder=0 class="header"
 		style="position: absolute; overflow: hidden;"></iframe>
 	<div style="width: 100%; height: 17vh; color: transparent">헤더</div>
@@ -118,13 +118,13 @@
 				<div data-v-080a389a="" class="snb-area">
 					<ul data-v-080a389a="" class="snb">
 						<li data-v-080a389a="" class=""><a data-v-080a389a=""
-							href="exhibition_past_page.do" role="button"
+							href="/exhibition_past_page" role="button"
 							style="cursor: pointer;">전체</a></li>
 						<li data-v-080a389a="" class="on"><a data-v-080a389a=""
-							href="exhibition_past_page1.do" role="button"
+							href="/exhibition_past_page1" role="button"
 							style="cursor: pointer;">대림미술관 &amp; 디뮤지엄</a></li>
 						<li data-v-080a389a="" class=""><a data-v-080a389a=""
-							href="exhibition_past_page2.do" role="button"
+							href="/exhibition_past_page2" role="button"
 							style="cursor: pointer;">구슬모아당구장</a></li>
 					</ul>
 				</div>
@@ -148,7 +148,7 @@
 									<ul data-v-bc272086="" class="year-list"
 										style="width: 832px; margin-left: 0px;">
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="" href="exhibition_past_page1.do" role="button">전체</a></li>
+											id="" href="/exhibition_past_page1" role="button">전체</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
 											id="2022-01-01" class="day_target" role="button">2022</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
@@ -170,10 +170,10 @@
 										<a data-v-0157d8cb="" href="javascript:;" class="thumb"
 											style="cursor: pointer;"><img data-v-2fed1a9a=""
 											data-v-0157d8cb=""
-											src="http://localhost:9000/dmu/resources/upload/${vo.dsfile }"
+											src="http://localhost:9000/upload/${vo.dsfile }"
 											alt="TONG’s VINTAGE : 기묘한 통의 만물상" class="pc" style=""><img
 											data-v-2fed1a9a="" data-v-0157d8cb=""
-											src="http://localhost:9000/dmu/resources/upload/${vo.dsfile }"
+											src="http://localhost:9000/upload/${vo.dsfile }"
 											alt="TONG’s VINTAGE : 기묘한 통의 만물상" class="mo" style=""></a>
 									</c:if>
 									<div data-v-0157d8cb="" class="info">
@@ -215,7 +215,7 @@
 
 
 	<!-- footer -->
-	<iframe src="footer.do" width="100%" height="490px" scrolling="no"
+	<iframe src="/footer" width="100%" height="490px" scrolling="no"
 		frameborder=0 class="footer" style="margin-bottom: -5px"></iframe>
 </body>
 </html>

@@ -21,13 +21,13 @@
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/font.css">
+<link rel="stylesheet" href="http://localhost:9000/css/font.css">
 	
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/event_page_det.css">
+<link rel="stylesheet" href="http://localhost:9000/css/event_page_det.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/tag_page.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/main_header.js"></script>
+<script src="http://localhost:9000/js/tag_page.js"></script>
+<script src="http://localhost:9000/js/main_header.js"></script>
  
  
  
@@ -35,7 +35,7 @@
 
 </head>
 <body>
-	<iframe src="header.do" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
+	<iframe src="/header" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
 	<div style="width:100%; height:17vh; color:transparent">헤더</div>
 	
 	<main>
@@ -50,7 +50,7 @@
 										<h2 data-v-0d03d759="">이벤트</h2>
 										<nav data-v-0d03d759="">
 											<ul data-v-0d03d759="">
-												<li data-v-0d03d759="" style="cursor: pointer;"><a href="index.do" style="opacity:0;">HOME</a></li>
+												<li data-v-0d03d759="" style="cursor: pointer;"><a href="/index" style="opacity:0;">HOME</a></li>
 												<li data-v-0d03d759="">EVENT</li>
 												<li data-v-0d03d759="">이벤트</li>
 												<!---->
@@ -187,7 +187,7 @@
 	<script type="text/javascript"
 		src="/js/chunk-vendors.85a954b2b4f1348cc700.js"></script>
 	<script type="text/javascript" src="/js/index.85a954b2b4f1348cc700.js"></script>
-	<iframe src="footer.do" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
+	<iframe src="/footer" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
 
 </body>
 </html>

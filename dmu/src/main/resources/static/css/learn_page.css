@@ -9742,18 +9742,18 @@ ul.info-list.half>li {
 	width: 4rem;
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
-.select-year-area .select-slide .year-list-box ul li a[data-v-bc272086]
-	{
+.select-year-area .select-slide .year-list-box ul li a[data-v-bc272086]{
 	font-size: 1.125rem;
 	line-height: 1.375rem;
 	color: #767676;
+	font-weight: 400;
 }
 
-.select-year-area .select-slide .year-list-box ul li.on a[data-v-bc272086]
-	{
-	font-weight: 500;
+.select-year-area .select-slide .year-list-box ul li.on a[data-v-bc272086]{
+	font-weight: 400;
 	color: #111;
 }
 

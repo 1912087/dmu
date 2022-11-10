@@ -1,5 +1,5 @@
  
- $(window).on('load', function () {
+ /*$(window).on('load', function () {
     load('#js-load', '6');
     $("#btn50").on("click", function () {
   
@@ -18,7 +18,7 @@ function load(id, cnt, btn) {
         $("#btn50").hide()
     }
     $(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
-}
+}*/
  
  
  

@@ -18,15 +18,15 @@
     <meta property="og:image" content="https://ddcfsharestroage.blob.core.windows.net/share/Store/Homepage/Main/Pc/202201/20220124135922977001.jpg"> -->
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/font.css">
+<link rel="stylesheet" href="http://localhost:9000/css/font.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/event_page.css"> 
+<link rel="stylesheet" href="http://localhost:9000/css/event_page.css"> 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/tag_page.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/main_header.js"></script>
+<script src="http://localhost:9000/js/tag_page.js"></script>
+<script src="http://localhost:9000/js/main_header.js"></script>
 <script>
 $(document).ready(function() {
 	let list_check = "${list}";
@@ -34,83 +34,80 @@ $(document).ready(function() {
 		$(".no-result").css("display", "block");
 	}
 	
+	event_past_list("all");
 	
 	$(".tabbox").click(function(){
+		$(".snb-area .snb li").removeClass("on");
+		$(this).parent().addClass("on");
+		var kind = $(this).attr("id");
 		 
-	$(".snb-area .snb li").removeClass("on");
-	$(this).parent().addClass("on");
-	var kind = $(this).attr("id");
-	 
-	event_past_list(kind);
+		event_past_list(kind);
+	});//click
 	
 	function event_past_list(kind){
-	
+		
 		$.ajax({ 
-			url : 'event_page_json.do',
+			url : '/event_page_json',
 			type : "post" , 
 			cache : false,
 			headers : {"cache-control":"no-cache", "pragma": "no-cache"},
 			data : {"dplace" : kind},
 			success : function(data){
-				//console.log(data);
-				 
-			let dataset = JSON.parse(data);
-			
-			var output =  "<div data-v-e3917d8a='' class='container' id='js-load' class='main'>"
-			output += "<ul data-v-e3917d8a='' class='program-list'>";
-			for(aj of dataset.list){
-				output += "<li data-v-e3917d8a='' class='lists__item js-load'>"
-				output += "<a data-v-e3917d8a='' href='javascript:void(0);' style='cursor: auto;'>"
-				output += "<div data-v-e3917d8a='' class='thumb'>"
-				output += "<img data-v-2fed1a9a='' data-v-e3917d8a=''  src='http://localhost:9000/dmu/resources/upload/" + aj.dsfile +"' alt='"+aj.dtitle +"' style=''>"
-				output += "</div>"
-				output += "<div data-v-e3917d8a='' class='info'>"
-				output += "<span data-v-e3917d8a='' class='place'>" + aj.dplace +" </span>"
-				output += "<strong data-v-e3917d8a='' class='title'> " + aj.dtitle +" </strong>"
-				output += "</div></a></li>"
+				let dataset = JSON.parse(data);
 				
-				}
-				
-			var	output1 = "<div data-v-e3917d8a='' class='btn-program-more' >"
-				output1 += "<div data-v-26e42198='' data-v-e3917d8a='' class='btn-area' id='js-btn-wrap' class='btn-wrap'>"
-				output1 += "<button data-v-26e42198='' id='btn50' name='btn50' type='button' class='secondary more' >더보기</button>"
-				output1 += "</div></div>"
-				
-		var paging_list = "<div data-v-650d6904='' data-v-1b9c8af9='' class='pagination-area' data-v-080a389a='' id='ampaginationsm'>"
-			paging_list +="</div>"
-			
-			output += "</ul></div> ";
-			
-			if(dataset.list.length !=0){
-			
-				$(".no-result").css("display","none");
-				$(".btn-program-more").remove();	
-				$("#js-load").remove();
-				$("#contents").append(output);
-				$(".container").append(paging_list);
-				$("#contents").after(output1);
-				load('#js-load', '6', '#js-btn-wrap');
-				
-				$("#btn50").click(function(){
-					 load('#js-load', '6', '#js-btn-wrap');
+				var output = "<div data-v-e3917d8a='' class='container' id='js-load' class='main'>"
+					output += "<ul data-v-e3917d8a='' class='program-list'>";
 					
-				});
+				for(aj of dataset.list){
+					output += "<li data-v-e3917d8a='' class='lists_item js-load'>"
+					output += "<a data-v-e3917d8a='' href='javascript:void(0);' style='cursor: auto;'>"
+					output += "<div data-v-e3917d8a='' class='thumb'>"
+					output += "<img data-v-2fed1a9a='' data-v-e3917d8a=''  src='http://localhost:9000/upload/" + aj.dsfile +"' alt='"+aj.dtitle +"' style=''>"
+					output += "</div>"
+					output += "<div data-v-e3917d8a='' class='info'>"
+					output += "<span data-v-e3917d8a='' class='place'>" + aj.dplace +" </span>"
+					output += "<strong data-v-e3917d8a='' class='title'> " + aj.dtitle +" </strong>"
+					output += "</div></a></li>"
+					
+				}
+					
+				var	output1 = "<div data-v-e3917d8a='' class='btn-program-more' >"
+					output1 += "<div data-v-26e42198='' data-v-e3917d8a='' class='btn-area' id='js-btn-wrap' class='btn-wrap'>"
+					output1 += "<button data-v-26e42198='' id='btn50' name='btn50' type='button' class='secondary more' >더보기</button>"
+					output1 += "</div></div>"
+					
+				var paging_list = "<div data-v-650d6904='' data-v-1b9c8af9='' class='pagination-area' data-v-080a389a='' id='ampaginationsm'>"
+					paging_list +="</div>"
 				
-			
-			}else{
-				$(".btn-program-more").remove();
-				$("#js-load").remove();
-				$(".no-result").css("display","block");
+				output += "</ul></div> ";
+				
+				if(dataset.list.length != 0){
+				
+					$(".no-result").css("display","none");
+					$(".btn-program-more").remove();	
+					$("#js-load").remove();
+					$("#contents").append(output);
+					$(".container").append(paging_list);
+					$("#contents").after(output1);
+					
+					load('#js-load', '6', '#js-btn-wrap');
+					
+					$("#btn50").click(function(){
+						 load('#js-load', '6', '#js-btn-wrap');
+					});
+					
+				}else{
+					$(".btn-program-more").remove();
+					$("#js-load").remove();
+					$(".no-result").css("display","block");
+				}
+			},//success
+			error : function(data){
+				alert('error');
 			}
-			
-		},
-		error : function(data){
-			alert('error');
-		}
-	});
+		});//ajax
+	}//function - event_past_list
 	
-		}//function - notice_search
-	});//click
 	
 	function load(id, cnt, btn) {
 	    var girls_list = id + " .js-load:not(.active)";
@@ -118,10 +115,11 @@ $(document).ready(function() {
 	    var girls_total_cnt;
 	    if (cnt < girls_length) {
 	        girls_total_cnt = cnt;
-	    } else {
+	    }else {
 	        girls_total_cnt = girls_length;
-	        $("#btn50").hide()
+	        $(".btn-program-more").hide();
 	    }
+
 	    $(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
 	}
 });//ready
@@ -131,7 +129,7 @@ $(document).ready(function() {
 <title>D MUSEUM | DAELIM MUSEUM | 구슬모아당구장</title>
 <style>
 	.evnet_title li:first-child{
-		background-image: url(http://localhost:9000/dmu/resources/images/home.svg);
+		background-image: url(http://localhost:9000/images/home.svg);
 	    background-repeat: no-repeat;
 	    background-size: contain;
 	    background-position: center;
@@ -141,7 +139,7 @@ $(document).ready(function() {
 </style>
 </head>
 <body>
-	<iframe src="header.do" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
+	<iframe src="/header" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
 	<div style="width:100%; height:17vh; color:transparent">헤더</div>
 
  
@@ -159,7 +157,7 @@ $(document).ready(function() {
                   		</ul>
 						<nav data-v-4052871d="">
 							<ul data-v-4052871d="" class = "evnet_title">
-								<li data-v-0d03d759="" style="cursor: pointer;"><a href="index.do" style="opacity:0;">HOME</a></li>
+								<li data-v-0d03d759="" style="cursor: pointer;"><a href="/index" style="opacity:0;">HOME</a></li>
 								<li data-v-4052871d="">EVENT</li>
 								<li data-v-4052871d="">이벤트</li>
 								<!---->
@@ -192,7 +190,7 @@ $(document).ready(function() {
 										</span>
 										<div data-v-e3917d8a="" class="btn-program-visual">
 											<div data-v-26e42198="" data-v-e3917d8a="" class="btn-area">
-												<a href="http://localhost:9000/dmu/event_page_det.do"><button data-v-26e42198="" id="btn49" type="button" class="secondary small">자세히 보기</button></a>
+												<a href="/event_page_det"><button data-v-26e42198="" id="btn49" type="button" class="secondary small">자세히 보기</button></a>
 											</div>
 											<!---->
 										</div>
@@ -230,16 +228,16 @@ $(document).ready(function() {
 							<!---->
 						</div>
 					</div>
-					<c:if test="${ not empty list }">
+					<%-- <c:if test="${ not empty list }"> --%>
 					<div data-v-e3917d8a="" class="sub-contents-area" id="contents" >
-						<div data-v-e3917d8a="" class="container" id="js-load" class="main">
+						<%-- <div data-v-e3917d8a="" class="container" id="js-load" class="main">
 							<ul data-v-e3917d8a="" class="program-list">
 								<c:forEach var="vo" items="${list}">
 									<li data-v-e3917d8a="" class="lists__item js-load">
 										<a data-v-e3917d8a="" href="javascript:void(0);" style="cursor: auto;">
 											<div data-v-e3917d8a="" class="thumb">
 												<img data-v-2fed1a9a="" data-v-e3917d8a="" 
-													src="http://localhost:9000/dmu/resources/upload/${vo.dsfile }" alt="${vo.dtitle }" style="">
+													src="http://localhost:9000/upload/${vo.dsfile }" alt="${vo.dtitle }" style="">
 											</div>
 											<div data-v-e3917d8a="" class="info">
 												<span data-v-e3917d8a="" class="place">${vo.dplace }</span>
@@ -249,16 +247,10 @@ $(document).ready(function() {
 									</li>
 								</c:forEach>
 							</ul>
-						</div>
+						</div> --%>
 					</div>
-					</c:if>
+					<%-- </c:if> --%>
 				<div data-v-1b9c8af9="" data-v-080a389a="" class="no-result" style="display:none;"><p data-v-1b9c8af9="" data-v-080a389a="">지난 이벤트가 없습니다.</p></div>
-		
-							<div data-v-e3917d8a="" class="btn-program-more" >
-								<div data-v-26e42198="" data-v-e3917d8a="" class="btn-area" id="js-btn-wrap" class="btn-wrap">
-									<button data-v-26e42198="" id="btn50" name="btn50" type="button" class="secondary more" >더보기</button>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -283,7 +275,7 @@ $(document).ready(function() {
 	<script type="text/javascript"
 		src="/js/chunk-vendors.85a954b2b4f1348cc700.js"></script>
 	<script type="text/javascript" src="/js/index.85a954b2b4f1348cc700.js"></script>
-<iframe src="footer.do" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
+<iframe src="/footer" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
 
 </body>
 </html>

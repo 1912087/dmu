@@ -15,19 +15,19 @@
 <link rel="icon" href="/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/font.css">
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/exhibition_page.css">
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/exhibition_past_page.css">
+<link rel="stylesheet" href="http://localhost:9000/css/font.css">
+<link rel="stylesheet" href="http://localhost:9000/css/exhibition_page.css">
+<link rel="stylesheet" href="http://localhost:9000/css/exhibition_past_page.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/tag_page.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/main_header.js"></script>
+<script src="http://localhost:9000/js/tag_page.js"></script>
+<script src="http://localhost:9000/js/main_header.js"></script>
 
 <title>D MUSEUM | DAELIM MUSEUM | 구슬모아당구장</title>
 
 </head>
 <body class="">
 	<!-- header  -->
-	<iframe src="header.do" width="100%" height="200px" scrolling="no"
+	<iframe src="/header" width="100%" height="200px" scrolling="no"
 		frameborder=0 class="header"
 		style="position: absolute; overflow: hidden;"></iframe>
 	<div style="width: 100%; height: 17vh; color: transparent">헤더</div>
@@ -41,8 +41,8 @@
 						<h2 data-v-0d03d759="">현재 전시</h2>
 						<nav data-v-0d03d759="">
 							<ul data-v-0d03d759="">
-								<li data-v-0d03d759="" style="cursor: pointer; background-image: url(http://localhost:9000/dmu/resources/images/home.svg);
-    								background-repeat: no-repeat; background-position: center; width: 50px;"><a href="index.do" style="opacity:0;">HOME</a></li>
+								<li data-v-0d03d759="" style="cursor: pointer; background-image: url(http://localhost:9000/images/home.svg);
+    								background-repeat: no-repeat; background-position: center; width: 50px;"><a href="/index" style="opacity:0;">HOME</a></li>
 								<li data-v-0d03d759="">EXHIBITION</li>
 								<li data-v-0d03d759="">현재 전시</li>
 								<!---->
@@ -54,13 +54,13 @@
 					<div data-v-080a389a="" class="snb-area">
 						<ul data-v-080a389a="" class="snb">
 							<li data-v-080a389a="" class=""><a data-v-080a389a=""
-								href="exhibition_page.do" role="button" >전체</a>
+								href="/exhibition_page" role="button" >전체</a>
 							</li>
 							<li data-v-080a389a="" class=""><a data-v-080a389a=""
-								href="exhibition_page1.do" role="button" >디뮤지엄</a>
+								href="/exhibition_page1" role="button" >디뮤지엄</a>
 							</li>
 							<li data-v-080a389a="" class="on" ><a data-v-080a389a=""
-								href="exhibition_page2.do" role="button"
+								href="/exhibition_page2" role="button"
 								>대림미술관</a></li>
 						</ul>
 					</div>
@@ -89,7 +89,7 @@
 	</main>
 
 	<!-- footer -->
-	<iframe src="footer.do" width="100%" height="490px" scrolling="no"
+	<iframe src="/footer" width="100%" height="490px" scrolling="no"
 		frameborder=0 class="footer" style="margin-bottom: -5px"></iframe>
 </body>
 </html>

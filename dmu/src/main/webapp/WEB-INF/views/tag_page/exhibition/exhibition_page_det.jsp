@@ -17,13 +17,13 @@
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800;900&amp;display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-<link rel="stylesheet" href="http://localhost:9000/dmu/resources/css/font.css">
+<link rel="stylesheet" href="http://localhost:9000/css/font.css">
 <link rel="stylesheet"
-	href="http://localhost:9000/dmu/resources/css/exhibition_page_det.css">
+	href="http://localhost:9000/css/exhibition_page_det.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/tag_page.js"></script>
-<script src="http://localhost:9000/dmu/resources/js/main_header.js"></script>
+<script src="http://localhost:9000/js/tag_page.js"></script>
+<script src="http://localhost:9000/js/main_header.js"></script>
 
 
 <title>D MUSEUM | DAELIM MUSEUM | 구슬모아당구장</title>
@@ -31,7 +31,7 @@
 </head>
 <body class="">
 	<!-- header  -->
-	<iframe src="header.do" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
+	<iframe src="/header" width="100%" height="200px" scrolling="no" frameborder=0 class="header" style="position:absolute; overflow:hidden;"></iframe>
 	<div style="width:100%; height:17vh; color:transparent">헤더</div>
 
 	<main>
@@ -40,17 +40,17 @@
 			<section data-v-6e774a1a="" class="sub-contents-wrap">
 				<div data-v-6e774a1a="" class="current-view-top">
 					<h2 data-v-6e774a1a="">Romantic Days</h2>
-					<span data-v-6e774a1a="" class="subtitle">${vo.dtitle }</span>
+					<span data-v-6e774a1a="" class="subtitle">${dto.dtitle }</span>
 					<div data-v-6e774a1a="" class="info">
-						<span data-v-6e774a1a="" class="place">${vo.dplace }</span><span
-							data-v-6e774a1a="" class="term"> ${vo.dstart } ~ ${vo.dend } </span>
+						<span data-v-6e774a1a="" class="place">${dto.dplace }</span><span
+							data-v-6e774a1a="" class="term"> ${dto.dstart } ~ ${dto.dend } </span>
 						<div data-v-6e774a1a="" class="btn-exhibition">
 							<div data-v-26e42198="" data-v-6e774a1a="" class="btn-area">
 								<button data-v-26e42198="" id="btn216" type="button"
 									class="btn-share">공유하기</button>
 							</div>
 							<div data-v-26e42198="" data-v-6e774a1a="" class="btn-area">
-								<a href="exhibition.do?did=${vo.did }"><button data-v-26e42198="" id="btn219" type="button"
+								<a href="/exhibition/${dto.did }"><button data-v-26e42198="" id="btn219" type="button"
 									class="btn-ticketing primary">예매하기</button></a>
 							</div>
 						</div>
@@ -1241,6 +1241,6 @@
 
 
 	<!-- footer -->
-<iframe src="footer.do" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
+<iframe src="/footer" width="100%" height="490px" scrolling="no" frameborder=0 class = "footer" style="margin-bottom:-5px" ></iframe>
 </body>
 </html>
