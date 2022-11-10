@@ -66,6 +66,12 @@ public class TagPageService {
 		return tagpageDao.getExhibition();
 	}
 	
+
+	public ArrayList<TicketDto> getDayList(String dcode, String day) {
+		ArrayList<TicketDto> list = tagpageDao.getDayList(dcode, day);
+		return list;
+	}
+	
 	/*
 	 * tag_page
 	 */
@@ -79,10 +85,5 @@ public class TagPageService {
 		ArrayList<TicketDto> list = tagpageDao.getEventList(dplace, dcode);
 		return list;
 	}
-	
-	
-//	public ArrayList<TicketDto> getDayList(String dcode, String day) {
-//		ArrayList<TicketDto> list = tagpageDao.getDayList(dcode, day);
-//		return list;
-//	}
+
 }

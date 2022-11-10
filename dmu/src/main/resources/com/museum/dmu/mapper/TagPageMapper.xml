@@ -5,12 +5,12 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace = "com.museum.dmu.mapper.TagPageMapper">
-		  <!-- exhibition_past_pag -->
-	 <select id="getEventContent" resultType="com.museum.dmu.dto.TicketDto">
-		 select did, dtitle, dplace, dfile, dsfile, dcode, dstart, dend, dtitle2 
-		 from dmu_ticket where dcode = #{dcode} and dend &lt; sysdate 
-		 order by dstart desc
-	 </select>
+	<!-- exhibition_past_pag -->
+	<select id="getEventContent" parameterType = "java.lang.String" resultType="com.museum.dmu.dto.TicketDto">
+		select did, dtitle, dplace, dfile, dsfile, dcode, dstart, dend, dtitle2 
+		from dmu_ticket where dcode = #{dcode} and dend &lt; sysdate 
+		order by dstart desc
+	</select>
 	
 	<select id="getEventList" resultType="com.museum.dmu.dto.TicketDto">
 		select did, dtitle, dplace, dsfile, dstart, dend 
@@ -21,13 +21,18 @@
 	</select>
 	
 	<!-- exhibition_past_page years -->
-	<!-- <select id="dayContent"  parameterType="map" resultType="com.museum.vo.DmuTicketVO">
-		 select did, dtitle, dplace, dfile,dsfile, dcode,dstart, dend ,dtitle2 from dmu_ticket where 
-		 dend &lt; sysdate and dcode = #{dcode} and  dstart &gt; #{day} and dstart &lt; #{nextyear} order by dstart
+	<select id="getDayList" resultType="com.museum.dmu.dto.TicketDto">
+		 select did, dtitle, dplace, dfile, dsfile, dcode, dstart, dend, dtitle2 
+		 from dmu_ticket 
+		 where dend &lt; sysdate and dcode = #{dcode} 
+		 <if test = '!day.equals("all")'>
+		 	and substr(dstart, 1, 4) = #{day}
+		 </if>
+		 order by dstart
 	</select>
 	
-	#exhibition_past_page1
-	<select id="exhibitionPast"  parameterType="java.lang.String" resultType="com.museum.vo.DmuTicketVO">
+	<!-- exhibition_past_page1 -->
+	<!--<select id="exhibitionPast"  parameterType="java.lang.String" resultType="com.museum.vo.DmuTicketVO">
 		 select did, dtitle, dplace, dfile,dsfile, dcode, dend ,dstart,dtitle2 from
 		(select did, dtitle, dplace, dfile,dsfile, dcode, dend ,dstart,dtitle2 from dmu_ticket where dend &lt; sysdate and dcode = #{dcode})
 		 where dplace='디뮤지엄' or dplace='대림미술관' order by dstart desc

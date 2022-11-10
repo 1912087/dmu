@@ -32,12 +32,11 @@
 			$(".day_target").css("color","#9999").css("font-weight","400");
 			$("#"+test).css("font-weight","bold").css("color","black");
 			
-			//.css("font-weight","bold");
 			var day = $(this).attr("id");
 			
 			$.ajax({
-				url : '/exhibition_past_ajaxlist/'+day, // 이주소로 보낼건데 
-				type : "get" , //어떤 방식으로 보낼거야?
+				url : '/exhibition_past_ajaxlist/'+day, 
+				type : "get", 
 				cache : false,
 				headers : {"cache-control" : "no-cache" , "pragma" : "no-cache"},
 				success : function(data){
@@ -142,15 +141,15 @@
 									<ul data-v-bc272086="" class="year-list"
 										style="width: 832px; margin-left: 0px;">
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="" href="/exhibition_past_page" role="button">전체</a></li>
+											id="all" href="/exhibition_past_page" role="button">전체</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="2022-01-01" class="day_target" role="button">2022</a></li>
+											id="2022" class="day_target" role="button">2022</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="2021-01-01" class="day_target" role="button">2021</a></li>
+											id="2021" class="day_target" role="button">2021</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="2020-01-01" class="day_target" role="button">2020</a></li>
+											id="2020" class="day_target" role="button">2020</a></li>
 										<li data-v-bc272086="" class=""><a data-v-bc272086=""
-											id="2019-01-01" class="day_target" role="button">2019</a></li>
+											id="2019" class="day_target" role="button">2019</a></li>
 									</ul>
 								</div>
 								
@@ -160,29 +159,29 @@
 						<ul data-v-0157d8cb="" id="exhibitionpast">
 							<c:forEach var="vo" items="${list}">
 							<div data-v-0157d8cb="" class="item-previous">
-										<c:if test="${vo.dsfile != null }">
+									<c:if test="${ vo.dsfile != null }">
 									<a data-v-0157d8cb="" href="javascript:;" class="thumb"
 										style="cursor: pointer;"><img data-v-2fed1a9a=""
 										data-v-0157d8cb=""
-										src="http://localhost:9000/upload/${vo.dsfile }"
-										alt="TONG’s VINTAGE : 기묘한 통의 만물상" class="pc" style=""><img
+										src="http://localhost:9000/upload/${ vo.dsfile }"
+										alt="${ vo.dfile }" class="pc" style=""><img
 										data-v-2fed1a9a="" data-v-0157d8cb=""
-										src="http://localhost:9000/upload/${vo.dsfile }"
-										alt="TONG’s VINTAGE : 기묘한 통의 만물상" class="mo" style=""></a>
-										</c:if>
+										src="http://localhost:9000/upload/${ vo.dsfile }"
+										alt="${ vo.dfile }" class="mo" style=""></a>
+									</c:if>
 									<div data-v-0157d8cb="" class="info">
-										<span data-v-0157d8cb="" class="place">${vo.dplace }</span>
+										<span data-v-0157d8cb="" class="place">${ vo.dplace }</span>
 										<div data-v-0157d8cb="" style="cursor: pointer;">
 											<span data-v-0157d8cb="" class="title">${vo.dtitle }</span>
 										</div>
-										<span data-v-0157d8cb="" class="term"> ${vo.dstart } ~
-											${vo.dend } </span>
+										<span data-v-0157d8cb="" class="term"> ${ vo.dstart } ~
+											${ vo.dend } </span>
 									</div>
 								</div>
 								</c:forEach>
 								</ul>
 								</c:if>
-								<c:if test="${empty list }">
+								<c:if test="${ empty list }">
 										<div data-v-97ddc3ec="" class="item-previous previous-list">
 											<div data-v-e20ce500="" data-v-080a389a=""
 														class="item-previous no-result">

@@ -106,47 +106,44 @@ public class TagPageController {
 		return "/tag_page/exhibition/exhibition_page2";
 	}	
 	
-//	// exhibition_past_page.do
-//	@RequestMapping(value="/exhibition_past_page.do", method=RequestMethod.GET)
-//	public ModelAndView exhibition_past_page() {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		ArrayList<DmuTicketVO> list = tagpageService.getEventContent("exhibition");
-//		
-//	 
-//		mv.addObject("list", list);
-//		mv.setViewName("tag_page/exhibition/exhibition_past_page");
-//		return mv;
-// 
-//	}
+	// exhibition_past_page.do
+	@GetMapping("/exhibition_past_page")
+	public String exhibition_past_page(Model model) {
+		ArrayList<TicketDto> list = tagpageService.getEventContent("exhibition");
+		model.addAttribute("list", list);
+
+		return "/tag_page/exhibition/exhibition_past_page";
+ 
+	}
 	
-//	//exhibition_past_ajaxlist
-//	@ResponseBody
-//	@RequestMapping(value="/exhibition_past_ajaxlist.do", method =RequestMethod.GET,produces="text/plain;charset=UTF-8")
-//	public String exhibitionPastAjax(String day){
-//		ArrayList<DmuTicketVO> list = tagpageService.getDayList("exhibition", day);
-//		
-//		JsonObject jobject = new JsonObject(); //DmuTicketVO
-//		JsonArray jarray = new JsonArray();  //ArrayList
-//		Gson gson = new Gson();
-//		
-//		for(DmuTicketVO vo : list){
-//			JsonObject jo = new JsonObject();
-//			jo.addProperty("did", vo.getDid());
-//			jo.addProperty("dtitle", vo.getDtitle());
-//			jo.addProperty("dplace", vo.getDplace());
-//			jo.addProperty("dfile", vo.getDfile());
-//			jo.addProperty("dsfile", vo.getDsfile());
-//			jo.addProperty("dcode", vo.getDcode());
-//			jo.addProperty("dstart", vo.getDstart());
-//			jo.addProperty("dend", vo.getDend());
-//			jo.addProperty("dtitle2", vo.getDtitle2());
-//			jarray.add(jo);
-//		}
-//		jobject.add("list", jarray); 
-//		
-//		return gson.toJson(jobject);
-//	}
+	//exhibition_past_ajaxlist
+	@ResponseBody
+	@GetMapping("/exhibition_past_ajaxlist/{day}")//produces="text/plain;charset=UTF-8"
+	public String exhibitionPastAjax(@PathVariable String day){
+		ArrayList<TicketDto> list = tagpageService.getDayList("exhibition", day);
+		
+		JsonObject jobject = new JsonObject(); //DmuTicketVO
+		JsonArray jarray = new JsonArray();  //ArrayList
+		Gson gson = new Gson();
+		
+		for(TicketDto dto : list){
+			JsonObject jo = new JsonObject();
+			jo.addProperty("did", dto.getDid());
+			jo.addProperty("dtitle", dto.getDtitle());
+			jo.addProperty("dplace", dto.getDplace());
+			jo.addProperty("dfile", dto.getDfile());
+			jo.addProperty("dsfile", dto.getDsfile());
+			jo.addProperty("dcode", dto.getDcode());
+			jo.addProperty("dstart", dto.getDstart());
+			jo.addProperty("dend", dto.getDend());
+			jo.addProperty("dtitle2", dto.getDtitle2());
+			jarray.add(jo);
+		}
+		jobject.add("list", jarray); 
+		
+		return gson.toJson(jobject);
+	}
+	
 //	//exhibition_past_ajaxlist1
 //	@ResponseBody
 //	@RequestMapping(value="/exhibition_past_ajaxlist1.do", method =RequestMethod.GET,produces="text/plain;charset=UTF-8")
@@ -233,16 +230,15 @@ public class TagPageController {
 //		return mv;
 //			 
 //	}	
-//	
-//	// exhibition_page_det.do
-//	@RequestMapping(value="/exhibition_page_det.do", method=RequestMethod.GET)
-//	public ModelAndView exhibition_page_det() {
-//		ModelAndView mv = new ModelAndView();
-//		DmuTicketVO vo = tagpageService.getExhibition();
-//		mv.addObject("vo",vo);
-//		mv.setViewName("tag_page/exhibition/exhibition_page_det");
-//		return mv;
-//	}	
+	
+	// exhibition_page_det.do
+	@GetMapping("/exhibition_page_det")
+	public String exhibition_page_det(Model model) {
+		TicketDto dto = tagpageService.getExhibition();
+		model.addAttribute("dto", dto);
+		
+		return "/tag_page/exhibition/exhibition_page_det";
+	}	
 	
 	// learn_page.do
 	@GetMapping("/learn_page/{dtarget}")

@@ -21,7 +21,22 @@
 <script src="http://localhost:9000/js/main_header.js"></script>
  
 <title>D MUSEUM | DAELIM MUSEUM | 구슬모아당구장</title>
-
+<script>
+	$(document).ready(function(){
+		$(".ex-tag").click(function(){
+			$(".ex-tag").removeClass("on");
+			$(this).addClass("on");
+			
+			if($(".snb-area .snb li[data-v-080a389a]:nth-child(3)").hasClass("on")) {
+				$(".check-result").css("display", "none");
+				$(".no-result").css("display", "block");
+			}else{
+				$(".check-result").css("display", "block");
+				$(".no-result").css("display", "none");
+			}
+		});
+	});
+</script>
 </head>
 <body class="">
 	<!-- header  -->
@@ -44,59 +59,71 @@
 						</nav>
 				</div>
 			</div>
-<div data-v-080a389a="" data-v-97ddc3ec="">
-	<div data-v-080a389a="" class="snb-area">
-		<ul data-v-080a389a="" class="snb">
-			<li data-v-080a389a="" class="on">
-				<a data-v-080a389a="" href="/exhibition_page" role="button" style="cursor: pointer;">전체</a>
-			</li>
-			<li data-v-080a389a="" class="">
-				<a data-v-080a389a="" href="/exhibition_page1" role="button" style="cursor: pointer;">디뮤지엄</a>
-			</li>
-			<li data-v-080a389a="" class="">
-				<a data-v-080a389a=""href="/exhibition_page2" role="button" style="cursor: pointer;">대림미술관</a>
-			</li>
-		</ul>
-	</div>
+			<div data-v-080a389a="" data-v-97ddc3ec="">
+				<div data-v-080a389a="" class="snb-area">
+					<ul data-v-080a389a="" class="snb">
+						<li data-v-080a389a="" class="ex-tag on">
+							<a data-v-080a389a="" role="button" style="cursor: pointer;">전체</a>
+						</li>
+						<li data-v-080a389a="" class="ex-tag">
+							<a data-v-080a389a="" role="button" style="cursor: pointer;">디뮤지엄</a>
+						</li>
+						<li data-v-080a389a="" class="ex-tag">
+							<a data-v-080a389a="" role="button" style="cursor: pointer;">대림미술관</a>
+						</li>
+					</ul>
+				</div>
 	
-<div data-v-080a389a="" class="sub-contents-area"></div>
-<div data-v-080a389a="" class="sub-contents-area"><!----></div>
-<div data-v-080a389a="" class="sub-contents-area"><!----></div>
-
-</div>
-
-<div data-v-97ddc3ec="" class="sub-contents-area" style="min-height: 400px;">
-	<div data-v-97ddc3ec="" class="container">
-		<div data-v-97ddc3ec="" class="current-list">
-			<ul data-v-97ddc3ec="">
-				<li data-v-97ddc3ec="">
-					<div data-v-97ddc3ec="" class="box">
-						<div data-v-97ddc3ec="" class="thumb">
-							<img data-v-2fed1a9a="" data-v-97ddc3ec="" src="http://localhost:9000/images/exhibition1.png" alt="어쨌든, 사랑" class="pc" style="">
+				<div data-v-97ddc3ec="" class="sub-contents-area no-result"
+					style="min-height: 400px; display : none;">
+					<div data-v-97ddc3ec="" class="container">
+						<div data-v-97ddc3ec="" class="current-list">
+							<div data-v-97ddc3ec="" class="no-data">
+								<strong data-v-97ddc3ec="">지금은 전시를 준비 중입니다.</strong> <span
+									data-v-97ddc3ec="">더 나은 전시로 찾아뵙겠습니다.</span>
+							</div>
 						</div>
-	
-<div data-v-97ddc3ec="" class="info">
-	<span data-v-97ddc3ec="" class="place"> ${dto.dplace } </span>
-	<span data-v-97ddc3ec="" class="title">Romantic Days</span>
-	<span data-v-97ddc3ec="" class="subtitle">${dto.dtitle }</span>
-	<p data-v-97ddc3ec="" class="explain"></p>
-		
-	<div data-v-97ddc3ec="" class="term-share">
-			<span data-v-97ddc3ec="" class="term"> ${dto.dstart } ~ ${dto.dend }</span>
-		<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
-			<button data-v-26e42198="" id="btn2965" type="button" class="btn-share"> 공유하기 </button>
-		</div>
-	</div>
+					</div>
+				</div>
+				
+				<div data-v-080a389a="" class="sub-contents-area"></div>
+				<div data-v-080a389a="" class="sub-contents-area"><!----></div>
+				<div data-v-080a389a="" class="sub-contents-area"><!----></div>
 
-	<div data-v-97ddc3ec="" class="btn-exhibition-current">
-		<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
-			<a href="/exhibition_page_det"><button data-v-26e42198="" id="btn2966" type="button" class="secondary"> 자세히보기 </button></a>
-		</div> 
-		<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
-			<a href="/exhibition/${ dto.did }"><button data-v-26e42198="" id="btn2967" type="button" class="primary"> 예매하기 </button></a>
 		</div>
-	</div>
-</div>
+
+		<div data-v-97ddc3ec="" class="sub-contents-area check-result" style="min-height: 400px;">
+			<div data-v-97ddc3ec="" class="container">
+				<div data-v-97ddc3ec="" class="current-list">
+					<ul data-v-97ddc3ec="">
+						<li data-v-97ddc3ec="">
+							<div data-v-97ddc3ec="" class="box">
+								<div data-v-97ddc3ec="" class="thumb">
+									<img data-v-2fed1a9a="" data-v-97ddc3ec="" src="http://localhost:9000/images/exhibition1.png" alt="어쨌든, 사랑" class="pc" style="">
+								</div>
+	
+								<div data-v-97ddc3ec="" class="info">
+									<span data-v-97ddc3ec="" class="place"> ${ dto.dplace } </span>
+									<span data-v-97ddc3ec="" class="title">Romantic Days</span>
+									<span data-v-97ddc3ec="" class="subtitle">${ dto.dtitle }</span>
+									<p data-v-97ddc3ec="" class="explain"></p>
+										
+									<div data-v-97ddc3ec="" class="term-share">
+											<span data-v-97ddc3ec="" class="term"> ${ dto.dstart } ~ ${ dto.dend }</span>
+										<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
+											<button data-v-26e42198="" id="btn2965" type="button" class="btn-share"> 공유하기 </button>
+										</div>
+									</div>
+								
+									<div data-v-97ddc3ec="" class="btn-exhibition-current">
+										<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
+											<a href="/exhibition_page_det"><button data-v-26e42198="" id="btn2966" type="button" class="secondary"> 자세히보기 </button></a>
+										</div> 
+										<div data-v-26e42198="" data-v-97ddc3ec="" class="btn-area">
+											<a href="/exhibition/${ dto.did }"><button data-v-26e42198="" id="btn2967" type="button" class="primary"> 예매하기 </button></a>
+										</div>
+									</div>
+								</div>
 
 						</div>
 					</li>
